@@ -1,0 +1,35 @@
+Nama  : Yulinda Indriyaswati
+NIM   : G.231.14.0178
+
+1) Variable :
+    Class   : HelloWorld
+    String  : Message
+    
+    Class   : Car.java
+    String  :  Brand,type,engine,fuel
+    
+    Class   : Vehicle.java
+    String  : Move
+    
+    Objek   : HelloWorld
+    
+2) Package
+    a.	SpringMvc01 : com.tobuku.controller 
+    b.	SpringMvc02 : com.tobuku.controller, com.tobuku.service, com.tobuku.service.impl
+    
+3) Alur Logic
+    (1) request URL terjadi.
+    (2) spring-servlet mengaktifkan bean-controller sesuai dengan mapping yang sudah didefinisikan.
+    (3) bean-controller ditemukan. Kemudian mengarahkan pada dua alternatif :
+        (3.1) Langsung ke View Resolver. 
+            (3.1.1) Membuka file fisik. Nama file sesuai dengan nilai properti “viewName”, direktorinya sesuai dengan awalan (prefix )yang didefinisikan pada bean viewResolver, sedangkan ekstensi file tergantung pada akhiran (suffix).
+        (3.2) ke class-controller. Contoh : class=”com.tobuku.controller.”
+            (3.2.1) kelas Helloworld berhasil dieksekusi dan mengembalikan objek ModelAndView. Selanjutnya ada dua kemungkinan.
+                (3.2.1.1) Pertama, mengarahkan ke model, yaitu eksekusi kepada bean yang didefinisikan di applicationContext.xml. Contoh : return new ModelAndView(“Helloworld”).
+                (3.2.1.2) Kedua, mengarahkan ke view, yaitu eksekusi kepada mapping URL yang didefinisikan di dispatcher-servlet.xml. Contoh : return new ModelAndView(new RedirectView(“/hello.html”)) Ini berarti kembali ke proses (2)
+
+  Ket : 
+   applicationContext.xml adalah file xml application context pada Spring. Penamaan file ini bisa diubah
+    Model : hello
+    Views : Welcome.jsp dan index.jsp .
+    Controller : HelloWorld.java
